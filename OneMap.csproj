@@ -30,6 +30,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Rock">
       <HintPath>lib\Rock.dll</HintPath>
@@ -55,4 +58,13 @@
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>mkdir plugin\bin
+mkdir plugin\uninstall
+echo bin\$(TargetFileName) &gt; plugin\uninstall\deletefile.lst
+copy $(TargetFileName) plugin\bin\$(TargetFileName)
+powershell Compress-Archive -path plugin\* -DestinationPath plugin.zip -Force
+move plugin.zip $(TargetName).plugin
+rmdir /S /Q plugin</PostBuildEvent>
+  </PropertyGroup>
 </Project>
