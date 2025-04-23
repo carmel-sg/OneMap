@@ -12,7 +12,7 @@ using Rock.Address;
 namespace sg.carmel.Address.OneMap
 {
     /// <summary>
-    /// Singapore Address Standardization and Geocoding service from <a href="https://onemap.sg/">OneMap</a>.
+    /// Singapore Address Standardization and Geocoding service from <a href="https://onemap.gov.sg/">OneMap</a>.
     /// </summary>
     [Description( "Singapore Address Standardization and Geocoding service from OneMap" )]
     [Export( typeof( VerificationComponent ) )]
@@ -53,8 +53,8 @@ namespace sg.carmel.Address.OneMap
             // Remove "blk" from query since OneMap does not return results with it.
             query = Regex.Replace( query, @"\bblk\b", "", RegexOptions.IgnoreCase );
 
-            var client = new RestClient( "https://developers.onemap.sg" );
-            var request = new RestRequest( "commonapi/search" )
+            var client = new RestClient( "https://www.onemap.gov.sg" );
+            var request = new RestRequest( "api/common/elastic/search" )
                 .AddParameter( "returnGeom", "Y" )
                 .AddParameter( "getAddrDetails", "Y" )
                 .AddParameter( "searchVal", query );
