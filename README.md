@@ -1,5 +1,5 @@
 # Rock OneMap Plugin
-This <a href="https://rockrms.com/">RockRMS</a> plugin adds standardization and geocoding of Singapore addresses from <a href="https://docs.onemap.sg/">OneMap</a>.
+This <a href="https://rockrms.com/">RockRMS</a> plugin adds standardization and geocoding of Singapore addresses from <a href="https://www.onemap.gov.sg/apidocs/">OneMap</a>.
 
 ## Getting started
 Once the plugin has been installed, head over to `System Settings > Location Service` to enable the OneMap address verification component.
